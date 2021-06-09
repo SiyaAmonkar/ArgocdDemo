@@ -24,7 +24,7 @@ argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>`
  argocd repo add <github_repo_url>
  
  # Create An Application From A Git Repository
- argocd app create demo --repo https://github.com/SiyaAmonkar/argocdcaller.git --path . --dest-server https://kubernetes.default.svc --dest-namespace argo --revision main --sync-policy automated
+ argocd app create demo --repo <github_repo_url>  --path <path_to_pod.yaml_file> --dest-server <server_url> --dest-namespace <argo_namespace> --revision <branch_name> --sync-policy automated
  
 # To sync repository changes with ArgoCD app
  argocd app sync demo
