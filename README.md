@@ -19,12 +19,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 *Using the username admin and the password from above, login to Argo CD's IP* \
 argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>` 
- 
- # Add a repository to ArgoCD 
- argocd repo add <github_repo_url>
- 
- # Create An Application From A Git Repository
- argocd app create demo --repo <github_repo_url>  --path <path_to_pod.yaml_file> --dest-server <server_url> --dest-namespace <argo_namespace> --revision <branch_name> --sync-policy automated
+
+  # Create An Application From A Git Repository
+ argocd app create demo --repo <github_repo_url>  --path <path_to_pod.yaml_file> --dest-server <cluster_server_url> --dest-namespace <argo_namespace> --revision <branch_name> --sync-policy automated
  
 # To sync repository changes with ArgoCD app
  argocd app sync demo
