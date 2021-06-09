@@ -18,7 +18,7 @@ kubectl get svc argocd-server -o yaml -n argocd | grep -i clusterIP
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d 
 
 *Using the username admin and the password from above, login to Argo CD's IP* \
-argocd login <ARGOCD_SERVER IP> --username admin --password  <password> 
+argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>` 
  
  # Add a repository to ArgoCD 
  argocd repo add <github_repo_url>
