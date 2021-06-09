@@ -19,6 +19,10 @@ spec:
           chmod +x argo-linux-amd64
           mv ./argo-linux-amd64 /usr/local/bin/argo
           argo list
-          cd argoworkflow
-          argo submit example.yaml
+          
+          # Apply argo templates
+          argo template create <templates/template_file.yaml>
+          
+          # Create Cron jobs
+          argo cron create <crons/cron_file.yaml>
   restartPolicy: OnFailure
