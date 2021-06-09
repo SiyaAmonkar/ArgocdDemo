@@ -21,6 +21,4 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 argocd login <ARGOCD_SERVER IP> --username admin --password <password> 
  
  # Add a repository to ArgoCD server
- 
- 
-
+ argocd repo add repo_url
