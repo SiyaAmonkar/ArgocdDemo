@@ -5,8 +5,8 @@ kubectl create ns argocd \
 curl -sSfL https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml | kubectl apply -n argocd -f -
 
 # ArgoCD CLI Installation Steps
-curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.0.3/argocd-linux-amd64
-chmod +x /usr/local/bin/argocd
+curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.0.3/argocd-linux-amd64 \
+chmod +x /usr/local/bin/argocd \
 
 # Access The Argo CD API 
 *By default, the Argo CD API server is not exposed with an external IP. To access the API server, we change the argocd-server service type to LoadBalancer:*
