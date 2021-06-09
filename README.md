@@ -1,5 +1,3 @@
-# ArgocdDemo
-
 # ArgoCD Installation Steps
 kubectl create ns argocd \
 curl -sSfL https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml | kubectl apply -n argocd -f -
