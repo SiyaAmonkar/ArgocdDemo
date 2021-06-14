@@ -1,27 +1,24 @@
-apiVersion: v1
-kind: Pod
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
 metadata:
   name: run-workflow
   annotations:
     argocd.argoproj.io/hook: PreSync
 spec:
-  containers:
+  entrypoint: argo
+  templates:
   - name: argo
-    image: ubuntu:latest
-    command:
-        - /bin/sh
-        - -c
-        - |
-          apt-get update
-          apt-get install git -y
-          apt-get install curl -yy
-          git clone https://github.com/SiyaAmonkar/ArgocdDemo.git
-          curl -sLO https://github.com/argoproj/argo/releases/download/v3.0.2/argo-linux-amd64.gz
-          gunzip argo-linux-amd64.gz
-          chmod +x argo-linux-amd64
-          mv ./argo-linux-amd64 /usr/local/bin/argo
-          argo list -n argo
-          argo template delete workflow-template-submittable -n argo
-          argo cron delete test-cron-wf -n argo
-          
-  restartPolicy: OnFailure
+    script:
+      image: ubuntu:latest
+      command: [sh]
+      source: |
+        apt-get update
+        apt-get install git -y
+        apt-get install curl -yy
+        git clone https://github.com/SiyaAmonkar/ArgocdDemo.git
+        curl -sLO https://github.com/argoproj/argo/releases/download/v3.0.2/argo-linux-amd64.gz
+        gunzip argo-linux-amd64.gz
+        chmod +x argo-linux-amd64
+        mv ./argo-linux-amd64 /usr/local/bin/argo
+        argo list
+        argo template delete workflow-template-submittable
