@@ -33,7 +33,7 @@ argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>`
   argocd app patch <application_name> --patch '{"spec": { "source": { "targetRevision": "<name_of_the branch>" } }}' --type merge
   
  # ResourceHooks added which creates workflows and templates in 3 stages
- Presync: Pod deletes the old copies of workflows template and cron workflows
- Sync: Creates workflow templates
- PostSync: Creates cron workflows
+ Presync: Pod deletes the old copies of workflows template and cron workflows \
+ Sync: Creates workflow templates \
+ PostSync: Creates cron workflows \
  
