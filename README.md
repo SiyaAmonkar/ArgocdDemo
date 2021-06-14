@@ -12,7 +12,8 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 
 # Login Using The CLI
 *To get ArgoCD server externalIP address* \
-kubectl -n argocd get svc argocd-server 
+kubectl -n argocd get svc argocd-server \
+select the externalIP address \
 
 *To retrieve the password of argocd-server* \
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d 
