@@ -47,7 +47,7 @@ https://<ARGOCD_SERVER_ExternalIP>:31784
  Disable SSL Verification \
  Choose the events when you want to trigger the webhook \
  Submit the webhook \ 
- *When there is a commit on Git Repository, webhook gets triggered and argocd application gets synced
+ *When there is a commit on Git Repository, webhook gets triggered and argocd application gets synced*
  
  
  
