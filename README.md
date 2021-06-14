@@ -22,6 +22,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 argocd login <ARGOCD_SERVER_ExternalIP> --username admin --password  `<password>` 
 
 # To access Argocd API server we go to:
+*To get ArgoCD server externalIP address* \
+kubectl -n argocd get svc argocd-server \
+select the externalIP address \
 https://<ARGOCD_SERVER_ExternalIP>:31784
 
  # Create An Application From A Git Repository
