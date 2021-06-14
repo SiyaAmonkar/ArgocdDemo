@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: run-workflow
+  annotations:
+    argocd.argoproj.io/hook: PreSync
 spec:
   containers:
   - name: argo
@@ -18,11 +20,8 @@ spec:
           gunzip argo-linux-amd64.gz
           chmod +x argo-linux-amd64
           mv ./argo-linux-amd64 /usr/local/bin/argo
-          argo list
+          argo list -n argo
+          argo template delete workflow-template-submittable
+          argo cron delete test-cron-wf
           
-          # Apply argo templates
-          argo template create <templates/template_file.yaml>
-          
-          # Create Cron jobs
-          argo cron create <crons/cron_file.yaml>
   restartPolicy: OnFailure
