@@ -11,16 +11,19 @@ chmod +x /usr/local/bin/argocd
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}' 
 
 # Login Using The CLI
-*To get ArgoCD server IP address* \
-kubectl get svc argocd-server -o yaml -n argocd | grep -i clusterIP 
+*To get ArgoCD server externalIP address* \
+kubectl -n argocd get svc argocd-server 
 
 *To retrieve the password of argocd-server* \
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d 
 
 *Using the username admin and the password from above, login to Argo CD's IP* \
-argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>` 
+argocd login <ARGOCD_SERVER_ExternalIP> --username admin --password  `<password>` 
 
-  # Create An Application From A Git Repository
+# To access Argocd API server we go to:
+https://<ARGOCD_SERVER_ExternalIP>:31784
+
+ # Create An Application From A Git Repository
  argocd app create demo --repo <github_repo_url>  --path <path_to_pod.yaml_file> --dest-server <cluster_server_url> --dest-namespace <argo_namespace> --revision <branch_name> --sync-policy automated
  
 # To sync repository changes with ArgoCD app
@@ -36,4 +39,15 @@ argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>`
  Presync: Workflow that deletes old copies of workflows template and cron workflows \
  Sync: Creates workflow templates \
  PostSync: Creates cron workflows 
+ 
+ # Git Webhook Configureation
+ Go to Settings, then Webhooks \
+ Add the argocd API server address to payload url \
+ Content type as application/json \ 
+ Disable SSL Verification \
+ Choose the events when you want to trigger the webhook \
+ Submit the webhook \ 
+ *When there is a commit on Git Repository, webhook gets triggered and argocd application gets synced
+ 
+ 
  
