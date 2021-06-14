@@ -13,7 +13,7 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 # Login Using The CLI
 *To get ArgoCD server externalIP address* \
 kubectl -n argocd get svc argocd-server \
-select the externalIP address \
+select the externalIP address 
 
 *To retrieve the password of argocd-server* \
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d 
@@ -46,7 +46,7 @@ https://<ARGOCD_SERVER_ExternalIP>:31784
  Add the argocd API server address to payload url \
  Content type as `<application/json>` and Disable SSL Verification \
  Choose the events when you want to trigger the webhook \
- Submit the webhook 
+ Submit the webhook \
  *When there is a commit on Git Repository, webhook gets triggered and argocd application gets synced*
  
  
