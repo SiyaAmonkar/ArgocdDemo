@@ -22,3 +22,4 @@ spec:
         mv ./argo-linux-amd64 /usr/local/bin/argo
         argo list
         argo template delete workflow-template-submittable
+        argo cron delete test-cron-wf
