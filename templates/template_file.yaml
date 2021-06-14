@@ -2,8 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: workflow-template-submittable
+  
 spec:
-  arguments:
+  arguments:annotations:
+    argocd.argoproj.io/hook: Sync
     parameters:
       - name: message
         value: hello world
