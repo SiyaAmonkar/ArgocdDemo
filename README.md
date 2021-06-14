@@ -43,8 +43,7 @@ https://<ARGOCD_SERVER_ExternalIP>:31784
  # Git Webhook Configureation
  Go to Settings, then Webhooks \
  Add the argocd API server address to payload url \
- Content type as `<application/json>` \ 
- Disable SSL Verification \
+ Content type as `<application/json>` and Disable SSL Verification \
  Choose the events when you want to trigger the webhook \
  Submit the webhook 
  *When there is a commit on Git Repository, webhook gets triggered and argocd application gets synced*
