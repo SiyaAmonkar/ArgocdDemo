@@ -44,7 +44,7 @@ https://<ARGOCD_SERVER_ExternalIP>:31784
  Sync: Creates workflow templates \
  PostSync: Creates cron workflows 
  
- # Git Webhook Configureation
+ # Git Webhook Configuration
  Go to Settings, then Webhooks \
  Add the argocd API server address to payload url \
  Content type as `<application/json>` and Disable SSL Verification \
