@@ -35,5 +35,5 @@ argocd login <ARGOCD_SERVER IP> --username admin --password  `<password>`
  # ResourceHooks added which creates workflows and templates in 3 stages
  Presync: Pod deletes the old copies of workflows template and cron workflows \
  Sync: Creates workflow templates \
- PostSync: Creates cron workflows \
+ PostSync: Creates cron workflows 
  
