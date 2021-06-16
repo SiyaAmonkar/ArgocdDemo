@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: retry-strategy-template
+spec:
+  templates:
+    - name: retry-template
+      retryStrategy:
+        limit: "3"
+        retryPolicy: "Always"
+      script:
+        image: python:alpine3.6
+        command: ["python"]
+        # fail with a 66% probability
+        source: |
+          import random;
+          import sys;
+          exit_code = random.choice([0, 1, 1]);
+          sys.exit(exit_code)
