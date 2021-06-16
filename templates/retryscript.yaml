@@ -6,7 +6,7 @@ spec:
   templates:
     - name: retry-template
       retryStrategy:
-        limit: "3"
+        limit: "2"
         retryPolicy: "Always"
       script:
         image: python:alpine3.6
