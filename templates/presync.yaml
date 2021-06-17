@@ -12,6 +12,7 @@ spec:
         image: ubuntu:18.04
         command: [bash]
         source: | 
+          apt-get install curl -y
           curl -sLO https://github.com/argoproj/argo/releases/download/v3.1.0-rc11/argo-linux-amd64.gz
           gunzip argo-linux-amd64.gz
           chmod +x argo-linux-amd64
