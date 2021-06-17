@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: testworkflow
+  generateName: testworkflow
   #annotations:
     #argocd.argoproj.io/hook: PreSync
 spec:
@@ -19,3 +19,4 @@ spec:
           chmod +x argo-linux-amd64
           mv ./argo-linux-amd64 /usr/local/bin/argo
           argo list
+          argo template lint template_file.yaml
