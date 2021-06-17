@@ -12,4 +12,4 @@ spec:
         image: ubuntu:18.04
         command: [bash]
         source: |                                         
-          echo "BYE BYE"
+          echo "Hello"
