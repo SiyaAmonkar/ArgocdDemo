@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: testworkflow
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  entrypoint: test-sync
+  templates:
+    - name: test-sync
+      script:
+        image: ubuntu:18.04
+        command: [bash]
+        source: |                                         
+          echo "Hello World"
