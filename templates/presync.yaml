@@ -2,8 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
   name: testworkflow
-  #annotations:
-    #argocd.argoproj.io/hook: PreSync
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   entrypoint: test-sync
   templates:
