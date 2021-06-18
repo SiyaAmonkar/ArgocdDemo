@@ -25,3 +25,4 @@ spec:
           cd ArgocdDemo
           argo list
           argo template lint templates
+          argo template lint crons
