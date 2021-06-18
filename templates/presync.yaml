@@ -14,9 +14,12 @@ spec:
         source: | 
           apt-get update 
           apt-get install -y curl
+          apt-get install -yy git
           curl -sLO https://github.com/argoproj/argo/releases/download/v3.1.0-rc11/argo-linux-amd64.gz
           gunzip argo-linux-amd64.gz
           chmod +x argo-linux-amd64
           mv ./argo-linux-amd64 /usr/local/bin/argo
+          git clone https://github.com/SiyaAmonkar/ArgocdDemo.git
+          cd ArgocdDemo
           argo list
-          argo template lint template_file.yaml
+          argo template lint templates
