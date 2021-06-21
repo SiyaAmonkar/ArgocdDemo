@@ -26,4 +26,4 @@ spec:
           argo list -n argo
           argo template list
           argo template lint templates -n argo
-          argo template lint crons -n argo
+          argo cron lint crons -n argo
